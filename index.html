@@ -17,13 +17,62 @@
 			<p>下記リポジトリのdataディレクトリにexcelまたはcsv（geojsonも可）ファイルをコミットすると、このページに反映されます。</p>
 		</div>
 		<div id='map' style='width: 400px; height: 300px;'></div>
-		<script>
-			var map = new maplibregl.Map({
-				container: 'map',
-				style: 'https://demotiles.maplibre.org/style.json', // stylesheet location
-				center: [-74.5, 40], // starting position [lng, lat]
-				zoom: 9 // starting zoom
-			});
+		<script type="text/javascript">
+
+			let protocol = new pmtiles.Protocol();
+			maplibregl.addProtocol("pmtiles",protocol.tile);
+
+			let PMTILES_URL = "https://protomaps.github.io/PMTiles/protomaps(vector)ODbL_firenze.pmtiles";
+			const p = new pmtiles.PMTiles(PMTILES_URL);
+			protocol.add(p);
+
+			p.getHeader().then(h => {
+				const map = new maplibregl.Map({
+						container: 'map',
+						zoom: h.maxZoom-2,
+						center: [h.centerLon, h.centerLat],
+						style: {
+								version:8,
+								sources: {
+										"example_source": {
+												type: "vector",
+												url: "pmtiles://" + PMTILES_URL,
+												attribution: '© <a href="https://openstreetmap.org">OpenStreetMap</a>'
+										}
+								},
+								layers: [
+										{
+												"id":"buildings",
+												"source": "example_source",
+												"source-layer":"landuse",
+												"type": "fill",
+												"paint": {
+														"fill-color": "steelblue"
+												}
+										},
+										{
+												"id":"roads",
+												"source": "example_source",
+												"source-layer":"roads",
+												"type": "line",
+												"paint": {
+														"line-color": "black"
+												}
+										},
+										{
+												"id":"mask",
+												"source": "example_source",
+												"source-layer":"mask",
+												"type": "fill",
+												"paint": {
+														"fill-color": "white"
+												}
+										}
+								]
+						}
+				});
+				map.showTileBoundaries = true;
+		})
 		</script>
 	</body>
 </html>
