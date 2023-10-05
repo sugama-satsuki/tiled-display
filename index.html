@@ -9,14 +9,15 @@
 		/>
 		<script src='https://unpkg.com/maplibre-gl@latest/dist/maplibre-gl.js'></script>
 		<link href='https://unpkg.com/maplibre-gl@latest/dist/maplibre-gl.css' rel='stylesheet' />
+		<link href='style.css' rel='stylesheet' />
 		<title>tiled display</title>
 	</head>
 	<body>
-		<div class="re">
+		<div class="title">
 			<h1>Tiled Display</h1>
 			<p>下記リポジトリのdataディレクトリにexcelまたはcsv（geojsonも可）ファイルをコミットすると、このページに反映されます。</p>
 		</div>
-		<div id='map' style='width: 400px; height: 300px;'></div>
+		<div id='map'></div>
 		<script type="text/javascript">
 
 			let protocol = new pmtiles.Protocol();
