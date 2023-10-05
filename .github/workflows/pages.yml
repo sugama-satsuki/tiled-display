@@ -19,6 +19,12 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
+  build: 
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Run sh
+        run: sh ./.github/tile.sh
   deploy:
     environment:
       name: github-pages
