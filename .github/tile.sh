@@ -33,11 +33,11 @@ function geojsonToTile() {
 
 # タイルの生成
 function makeTile(){
-    ls
-    cd ../../data
 
-    if [ -e ../geojson_data ]; then rm -rf ../geojson_data ; fi
-    if [ -e ../tile_data ]; then rm -rf ../tile_data ; fi    
+    cd ./data
+
+    if [ -e ./geojson_data ]; then rm -rf ./geojson_data ; fi
+    if [ -e ./tile_data ]; then rm -rf ./tile_data ; fi    
 
     ls | while read line
     do
