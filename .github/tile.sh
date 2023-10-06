@@ -3,10 +3,10 @@ set -ex
 
 LOG_ERR=../err_log/`date +%Y-%m-%d_%H-%M-%S.log`
 
-apt-get install xlsx2csv
-apt-get install zlib1g zlib1g-dev
+sudo apt-get install xlsx2csv
+sudo apt-get install zlib1g zlib1g-dev
 git clone https://github.com/mapbox/tippecanoe.git
-cdtippecanoe
+cd tippecanoe
 make
 make install
 
