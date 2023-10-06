@@ -3,6 +3,13 @@ set -ex
 
 LOG_ERR=../err_log/`date +%Y-%m-%d_%H-%M-%S.log`
 
+apt-get install xlsx2csv
+apt-get install zlib1g zlib1g-dev
+git clone https://github.com/mapbox/tippecanoe.git
+cdtippecanoe
+make
+make install
+
 # execlファイルからcsvファイルを生成
 function excelToCsv() {
     filename=$(basename $1 .xlsx)
