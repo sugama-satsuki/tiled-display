@@ -28,8 +28,8 @@ jobs:
         run: |
           sudo apt-get install xlsx2csv
           sudo apt-get install build-essential libsqlite3-dev zlib1g-dev
+          ls -l /usr/local/share/man/man1//tippecanoe.1
           git clone https://github.com/mapbox/tippecanoe.git
-          ls
           cd tippecanoe
           make -j
           make install
