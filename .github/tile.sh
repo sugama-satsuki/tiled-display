@@ -3,8 +3,8 @@ set -ex
 
 LOG_ERR=../err_log/`date +%Y-%m-%d_%H-%M-%S.log`
 
-apt-get install xlsx2csv
-apt-get install build-essential libsqlite3-dev zlib1g-dev
+sudo apt-get install xlsx2csv
+sudo apt-get install build-essential libsqlite3-dev zlib1g-dev
 make
 make install
 
