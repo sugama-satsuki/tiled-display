@@ -5,12 +5,12 @@ LOG_ERR=../err_log/`date +%Y-%m-%d_%H-%M-%S.log`
 
 sudo apt-get install xlsx2csv
 sudo apt-get install build-essential libsqlite3-dev zlib1g-dev
-make
+sudo make
 sudo make install
 
 git clone https://github.com/mapbox/tippecanoe.git
 cd tippecanoe
-make -j
+sudo make -j
 sudo make install
 
 # execlファイルからcsvファイルを生成
