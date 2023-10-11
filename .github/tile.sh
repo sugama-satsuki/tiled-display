@@ -2,15 +2,6 @@
 set -ex
 
 LOG_ERR=../err_log/`date +%Y-%m-%d_%H-%M-%S.log`
-# make -v
-# sudo apt-get install xlsx2csv
-# sudo apt-get install build-essential libsqlite3-dev zlib1g-dev
-
-# git clone https://github.com/mapbox/tippecanoe.git
-# ls
-# cd tippecanoe
-# make -j
-# make install
 
 # execlファイルからcsvファイルを生成
 function excelToCsv() {
@@ -23,8 +14,8 @@ function excelToCsv() {
 function csvToGeojson() {
     filename=$(basename $1 .csv)
     geojson=$filename".geojson"
-    sed -i '' "s/緯度/lat/" $1
-    sed -i '' "s/経度/lon/" $1
+    sed -i'' "s/緯度/lat/" $1
+    sed -i'' "s/経度/lon/" $1
 
     ogr2ogr -f GeoJSON $geojson $1 -oo X_POSSIBLE_NAMES=lat* -oo Y_POSSIBLE_NAMES=lon*
     if [ ! -e ../geojson_data ]; then mkdir ../geojson_data ; fi
