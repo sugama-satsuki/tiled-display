@@ -33,9 +33,7 @@ function csvToGeojson() {
 function geojsonToTile() {
     fileName='sample.mbtiles'
     tippecanoe -zg -o $fileName ../geojson_data/*
-    if [ ! -e ../tile_data ]; then mkdir ../tile_data ; fi
     pwd
-    mv -f $fileName ../tile_data
 }
 
 
