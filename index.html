@@ -14,7 +14,7 @@
 	</head>
 	<body>
 		<div class="title">
-			<h1>ああああTiled Display</h1>
+			<h1>Tiled Display</h1>
 			<p>下記リポジトリのdataディレクトリにexcelまたはcsv（geojsonも可）ファイルをコミットすると、このページに反映されます。</p>
 		</div>
 		<div id='map'></div>
@@ -23,7 +23,7 @@
 			let protocol = new pmtiles.Protocol();
 			maplibregl.addProtocol("pmtiles",protocol.tile);
 
-			let PMTILES_URL = "https://sugama-satsuki.github.io/tiled-display/data/sample.pmtiles";
+			let PMTILES_URL = "https://sugama-satsuki.github.io/tiled-display/sample.pmtiles";
 			const p = new pmtiles.PMTiles(PMTILES_URL);
 			protocol.add(p);
 
