@@ -4,7 +4,7 @@ set -ex
 git clone https://github.com/mapbox/tippecanoe.git
 cd tippecanoe
 make -j
-make install
+sudo make install
 
 tippecanoe -v
 
