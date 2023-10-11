@@ -16,7 +16,8 @@ sed -i'' "s/緯度/lat/" 12_suisyou_koukyoushisetu-1.csv
 sed -i'' "s/経度/lon/" 12_suisyou_koukyoushisetu-1.csv
 ogr2ogr -f GeoJSON 12_suisyou_koukyoushisetu-1.geojson 12_suisyou_koukyoushisetu-1.csv -oo X_POSSIBLE_NAMES=lat* -oo Y_POSSIBLE_NAMES=lon*
 tippecanoe -zg -o 'sample.mbtiles' *.geojson
-ls
+mv -f 'sample.mbtiles' ../
+ls ../
 pwd
 
 
