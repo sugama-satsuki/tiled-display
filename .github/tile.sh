@@ -1,5 +1,4 @@
 #!/usr/bin/env bash
-set -ex
 
 git clone https://github.com/mapbox/tippecanoe.git
 cd tippecanoe
@@ -8,6 +7,8 @@ sudo make install
 cd ..
 
 tippecanoe -v
+
+set -ex
 
 # execlファイルからcsvファイルを生成
 function excelToCsv() {
