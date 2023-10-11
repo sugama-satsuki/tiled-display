@@ -1,6 +1,11 @@
 #!/usr/bin/env bash
 set -ex
 
+git clone https://github.com/mapbox/tippecanoe.git
+cd tippecanoe
+make -j
+make install
+
 tippecanoe -v
 
 # LOG_ERR=../err_log/`date +%Y-%m-%d_%H-%M-%S.log`
