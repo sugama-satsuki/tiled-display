@@ -2,7 +2,7 @@
 set -ex
 
 LOG_ERR=../err_log/`date +%Y-%m-%d_%H-%M-%S.log`
-apt-get install gdal-bin
+sudo apt-get install gdal-bin
 
 # execlファイルからcsvファイルを生成
 function excelToCsv() {
