@@ -35,6 +35,7 @@ jobs:
           sudo apt-get install build-essential
           brew install gcc
           brew install tippecanoe
+          tippecanoe -v
           
       - name: Run sh
         run: bash ./.github/tile.sh
