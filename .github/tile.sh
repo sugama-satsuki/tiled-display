@@ -2,6 +2,7 @@
 set -ex
 
 LOG_ERR=../err_log/`date +%Y-%m-%d_%H-%M-%S.log`
+sudo apt-get install xlsx2csv
 
 # execlファイルからcsvファイルを生成
 function excelToCsv() {
