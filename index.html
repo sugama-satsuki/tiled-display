@@ -23,7 +23,7 @@
 			let protocol = new pmtiles.Protocol();
 			maplibregl.addProtocol("pmtiles",protocol.tile);
 
-			let PMTILES_URL = "https://github.com/sugama-satsuki/tiled-display/data/sample.pmtiles";
+			let PMTILES_URL = "data/sample.pmtiles";
 			const p = new pmtiles.PMTiles(PMTILES_URL);
 			protocol.add(p);
 
