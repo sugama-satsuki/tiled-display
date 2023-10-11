@@ -24,6 +24,8 @@ function csvToGeojson() {
 
 # geojsonファイルからpmtilesを生成
 function geojsonToTile() {
+    brew install tippecanoe
+    tippecanoe -v
     fileName='sample.pmtiles'
     tippecanoe -zg -o $fileName ../geojson_data/*
     if [ ! -e ../tile_data ]; then mkdir ../tile_data ; fi
