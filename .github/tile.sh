@@ -3,6 +3,14 @@ set -ex
 
 LOG_ERR=../err_log/`date +%Y-%m-%d_%H-%M-%S.log`
 
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+(echo; echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"') >> /home/runner/.bashrc
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+sudo apt-get install build-essential
+brew install gcc
+brew install tippecanoe
+tippecanoe -v
+
 # execlファイルからcsvファイルを生成
 function excelToCsv() {
     filename=$(basename $1 .xlsx)
@@ -24,8 +32,6 @@ function csvToGeojson() {
 
 # geojsonファイルからpmtilesを生成
 function geojsonToTile() {
-    brew install tippecanoe
-    tippecanoe -v
     fileName='sample.pmtiles'
     tippecanoe -zg -o $fileName ../geojson_data/*
     if [ ! -e ../tile_data ]; then mkdir ../tile_data ; fi
