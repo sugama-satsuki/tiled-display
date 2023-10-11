@@ -5,6 +5,7 @@ git clone https://github.com/mapbox/tippecanoe.git
 cd tippecanoe
 make -j
 sudo make install
+cd ..
 
 tippecanoe -v
 
