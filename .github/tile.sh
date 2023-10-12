@@ -1,12 +1,12 @@
 #!/usr/bin/env bash
 
-git clone https://github.com/mapbox/tippecanoe.git
-cd tippecanoe
-make -j
-sudo make install
-cd ..
+# git clone https://github.com/mapbox/tippecanoe.git
+# cd tippecanoe
+# make -j
+# sudo make install
+# cd ..
 
-tippecanoe -v
+# tippecanoe -v
 
 set -ex
 
@@ -16,7 +16,7 @@ sed -i'' "s/緯度/lat/" 12_suisyou_koukyoushisetu-1.csv
 sed -i'' "s/経度/lon/" 12_suisyou_koukyoushisetu-1.csv
 ogr2ogr -f GeoJSON 12_suisyou_koukyoushisetu-1.geojson 12_suisyou_koukyoushisetu-1.csv -oo X_POSSIBLE_NAMES=lat* -oo Y_POSSIBLE_NAMES=lon*
 tippecanoe -zg -o 'sample.pmtiles' *.geojson
-mv -f 'sample.mbtiles' ../
+mv -f 'sample.pmtiles' ../
 ls ../
 pwd
 
