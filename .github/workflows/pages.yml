@@ -38,7 +38,13 @@ jobs:
           
       - name: Run sh
         run: bash ./.github/tile.sh
-        # アップロードする
+        
+      # アップロードする  
+      - uses: actions/upload-artifact@v3
+        with:
+          name: upload-tile
+          path: sample.pmtiles
+          if-no-files-found: warn
         
   deploy:
     environment:
@@ -52,6 +58,11 @@ jobs:
       - name: Setup Pages
         uses: actions/configure-pages@v3
         # ダウンロードするここで
+      - uses: actions/download-artifact@v3
+        with:
+          name: upload-tile
+      - name: display
+        run: ls -R
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v2
         with:
