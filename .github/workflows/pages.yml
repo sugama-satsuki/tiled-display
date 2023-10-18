@@ -38,6 +38,8 @@ jobs:
           
       - name: Run sh
         run: bash ./.github/tile.sh
+        # アップロードする
+        
   deploy:
     environment:
       name: github-pages
@@ -49,6 +51,7 @@ jobs:
         uses: actions/checkout@v3
       - name: Setup Pages
         uses: actions/configure-pages@v3
+        # ダウンロードするここで
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v2
         with:
