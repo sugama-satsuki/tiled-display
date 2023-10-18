@@ -19,6 +19,7 @@ tippecanoe -zg -o 'sample.pmtiles' *.geojson
 mv -f 'sample.pmtiles' ../
 cd ../
 pwd
+ls
 
 
 # # execlファイルからcsvファイルを生成
