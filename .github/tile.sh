@@ -11,10 +11,8 @@
 set -ex
 
 cd ./data
-xlsx2csv 12_suisyou_koukyoushisetu-1.xlsx 12_suisyou_koukyoushisetu-1.csv
-sed -i'' "s/緯度/lat/" 12_suisyou_koukyoushisetu-1.csv
-sed -i'' "s/経度/lon/" 12_suisyou_koukyoushisetu-1.csv
-ogr2ogr -f GeoJSON 12_suisyou_koukyoushisetu-1.geojson 12_suisyou_koukyoushisetu-1.csv -oo X_POSSIBLE_NAMES=lat* -oo Y_POSSIBLE_NAMES=lon*
+xlsx2csv suisyou_koukyoushisetu-1.xlsx suisyou_koukyoushisetu-1.csv
+ogr2ogr -f GeoJSON suisyou_koukyoushisetu-1.geojson suisyou_koukyoushisetu-1.csv -oo X_POSSIBLE_NAMES=緯度* -oo Y_POSSIBLE_NAMES=経度*
 tippecanoe -zg -o 'sample.pmtiles' *.geojson
 mv -f 'sample.pmtiles' ../
 cd ../
